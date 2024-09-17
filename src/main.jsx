@@ -12,6 +12,7 @@ import Home from './Components/Home/Home';
 import FAQ from './Components/Home/FAQ';
 import Login from './Components/Registrations/Login';
 import SignUp from './Components/Registrations/signup';
+import DonationInfo from './Components/Home/DonationInfo';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path:'/',
         element: <Home></Home>
+      },
+      {
+        path: '/donationinfo',
+        element: <DonationInfo></DonationInfo>
+
       },
       {
         path: '/faq',

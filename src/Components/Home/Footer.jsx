@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center text-white text-lg font-medium bg-gradient-to-r from-red-900 via-red-700  p-10">
+        <footer className="footer footer-center text-white text-lg font-medium bg-gradient-to-r from-red-500 via-red-900 to-red-500 ...  p-10">
   <aside>
     <svg
       width="50"

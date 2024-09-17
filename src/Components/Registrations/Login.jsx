@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const handleLogin=event=>{
@@ -13,7 +14,7 @@ const Login = () => {
         <div className="hero mt-5 bg-gradient-to-r from-white via-red-100 to-red-50 ...">
             <div className="hero-content max-w-6xl flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold mb-8 text-red-500">Login now!</h1> 
+                    <h1 className="text-5xl font-bold mb-6 text-red-500">Login now!</h1> 
                 </div>
                 <div className="card border border-red-300 p-10">
                     <form onSubmit={handleLogin} className="card-body">
@@ -35,6 +36,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn bg-red-500 hover:bg-red-400 text-white">Login</button>
                         </div>
+                        <p>Don`t have Account? Please <Link className="text-blue-500" to='/signup'>Sign UP</Link></p>
                     </form>
                 </div>
             </div>

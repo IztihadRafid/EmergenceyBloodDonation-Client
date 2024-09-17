@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -19,7 +20,7 @@ const SignUp = () => {
             <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold mb-8 text-red-500">Register now!</h1> 
             </div>
-            <div className="card border border-red-300 p-10">
+            <div className="card border border-red-300 p-8">
                 <form onSubmit={handleSignUp} className="card-body">
                 <div className="form-control">
                         <label className="label">
@@ -63,6 +64,7 @@ const SignUp = () => {
                     <div className="form-control mt-6">
                         <button className="btn bg-red-500 hover:bg-red-400 text-white">Sign Up</button>
                     </div>
+                    <p>Already have an Account? Please <Link className="text-blue-500" to='/login'>Login</Link></p>
                 </form>
             </div>
         </div>
