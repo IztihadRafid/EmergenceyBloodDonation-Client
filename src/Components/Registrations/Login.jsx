@@ -11,8 +11,8 @@ const Login = () => {
         console.log(user);
     }
     return (
-        <div className="hero mt-5 bg-gradient-to-r from-white via-red-100 to-red-50 ...">
-            <div className="hero-content max-w-6xl flex-col">
+        <div className="hero mt-5  ">
+            <div className="hero-content max-w-6xl flex-col mb-10 ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold mb-6 text-red-500">Login now!</h1> 
                 </div>
