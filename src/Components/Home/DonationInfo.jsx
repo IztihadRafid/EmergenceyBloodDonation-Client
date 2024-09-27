@@ -92,6 +92,9 @@ const DonationInfo = () => {
                     </div>
                 </div>
             </div>
+            <p>
+            
+            </p>
             <Footer></Footer>
         </div>
 

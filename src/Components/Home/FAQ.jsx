@@ -26,13 +26,7 @@ const FAQ = () => {
                     <p className='text-lg'>No, This is free platform</p>
                 </div>
             </div>
-            <div className="collapse collapse-arrow bg-slate-100 mb-5 p-3">
-                <input type="radio" name="my-accordion-2" />
-                <div className="collapse-title text-2xl font-medium">Blood donor to pay any money?</div>
-                <div className="collapse-content">
-                    <p className='text-lg'>You will talk about this thing. We have no hands here.</p>
-                </div>
-            </div>
+            
             <div className="collapse collapse-arrow bg-slate-100 mb-5 p-3">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-2xl font-medium">What is our goal?</div>

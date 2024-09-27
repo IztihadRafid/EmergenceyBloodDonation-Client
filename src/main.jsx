@@ -13,6 +13,7 @@ import FAQ from './Components/Home/FAQ';
 import Login from './Components/Registrations/Login';
 import SignUp from './Components/Registrations/signup';
 import DonationInfo from './Components/Home/DonationInfo';
+import AuthProvider from './providers/AuthProvider';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

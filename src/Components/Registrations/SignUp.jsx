@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
     const handleSignUp =event =>{
         event.preventDefault()
         const form = event.target;
@@ -13,6 +16,15 @@ const SignUp = () => {
         const password = form.password.value;
         const user = {name,age,address,phone,email,password}
         console.log(user);
+        createUser(email,password)
+        .then(result=>{
+            const user= result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.error(error);
+        })
+
     }
     return (
         <div className="hero mt-5 bg-gradient-to-r from-white via-red-100 to-red-50 ...">
