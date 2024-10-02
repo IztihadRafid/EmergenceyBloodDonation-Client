@@ -14,6 +14,8 @@ import Login from './Components/Registrations/Login';
 import SignUp from './Components/Registrations/signup';
 import DonationInfo from './Components/Home/DonationInfo';
 import AuthProvider from './providers/AuthProvider';
+import DonorForm from './Components/DonorForm/DonorForm';
+import PrivateRoutes from './PrivateRoutes';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/donate",
+    element: <PrivateRoutes><DonorForm></DonorForm></PrivateRoutes>
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
