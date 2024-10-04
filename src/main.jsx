@@ -16,6 +16,7 @@ import DonationInfo from './Components/Home/DonationInfo';
 import AuthProvider from './providers/AuthProvider';
 import DonorForm from './Components/DonorForm/DonorForm';
 import PrivateRoutes from './PrivateRoutes';
+import RequestBloodForm from './Components/Home/RequestBloodForm/RequestBloodForm';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/donate",
     element: <PrivateRoutes><DonorForm></DonorForm></PrivateRoutes>
+  },
+  {
+    path:"/requestbloodform",
+    element: <PrivateRoutes><RequestBloodForm></RequestBloodForm></PrivateRoutes>
   }
 ]);
 createRoot(document.getElementById('root')).render(

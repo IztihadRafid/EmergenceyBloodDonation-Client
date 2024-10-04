@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
     const {createUser} = useContext(AuthContext)
+    const [signUpError,setSignUpError]= useState('')
+   
     const handleSignUp =event =>{
         event.preventDefault()
         const form = event.target;
@@ -12,28 +15,43 @@ const SignUp = () => {
         const age = form.age.value;
         const address = form.address.value;
         const phone = form.phone.value;
+       
+        //VALIDATION OF CONTACT NUMBER
+        const regex = /^01\d{9}$/;
+        if (!regex.test(phone)) {
+            return Swal.fire({
+                icon: "error",
+                text: "Invalid Contact number",
+            });
+        }
         const email = form.email.value;
         const password = form.password.value;
         const user = {name,age,address,phone,email,password}
         console.log(user);
+        setSignUpError("")
+        //reset validation
+        
         createUser(email,password)
         .then(result=>{
             const user= result.user;
             console.log(user);
+            Swal.fire("Registered Successfully");
+
         })
         .catch(error=>{
             console.error(error);
+            setSignUpError(error.message)
         })
 
     }
     return (
         <div className="hero mt-5 bg-gradient-to-r from-white via-red-100 to-red-50 ...">
-        <div className="hero-content max-w-6xl flex-col">
+        <div className="hero-content  flex-col">
             <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold mb-8 text-red-500">Register now!</h1> 
             </div>
-            <div className="card border border-red-300 p-8">
-                <form onSubmit={handleSignUp} className="card-body">
+            <div className="card  border border-red-300 p-8">
+                <form onSubmit={handleSignUp} className="card-body mx-auto">
                 <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -69,10 +87,12 @@ const SignUp = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered md:w-96" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        
                     </div>
+                    {
+                        // Viewing authentication error in SignUp
+                        signUpError && <p className="text-red-500 text-lg font-medium w-2/3">{signUpError}</p>
+                    }
                     <div className="form-control mt-6">
                         <button className="btn bg-red-500 hover:bg-red-400 text-white">Sign Up</button>
                     </div>
