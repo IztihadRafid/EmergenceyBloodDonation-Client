@@ -63,8 +63,8 @@ const Navbar = () => {
     return (
        <div>
         <Marquee><MarqueeHeading></MarqueeHeading></Marquee>
-         <div className="navbar bg-gradient-to-r from-white via-red-100 to-red-50 ... max-w-screen-2xl mx-auto">
-            <div className="navbar-start">
+         <div className="navbar bg-gradient-to-r from-red-200 via-red-100 to-red-300 ...  mx-auto">
+            <div className="navbar-start ">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -86,7 +86,7 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <img className="md:w-48 sm:w-10" src={logoheader} alt="" />
+                <img className="md:w-48 sm:w-10 mx-5" src={logoheader} alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -102,7 +102,7 @@ const Navbar = () => {
                    
                 </div>
             </div>
-            <img className="w-10 rounded-full" alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            <img className="w-10 mx-5 rounded-full" alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         </div>
        </div>
     );

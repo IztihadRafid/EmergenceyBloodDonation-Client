@@ -6,6 +6,7 @@ import AboutUs from './AboutUs';
 import donationinfoPic from "../../assets/donationinfoPic.jpg" 
 import faqPic from "../../assets/FaqPic.jpg" 
 import { Link } from 'react-router-dom';
+import PhoneDesign from './PhoneDesign';
 const Home = () => {
     useEffect(() => {
         const card = document.getElementById('faqCard');
@@ -76,6 +77,7 @@ const Home = () => {
                 </div>
             </div>
            </div>
+           <PhoneDesign></PhoneDesign>
             <Footer></Footer>
 
         </div>

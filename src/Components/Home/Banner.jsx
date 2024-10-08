@@ -11,9 +11,9 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-30"></div>
             
             <div className="hero-content text-neutral-content text-center">
-                <div className="max-w-2xl">
-                    <h1 className="mb-10 lg:text-5xl text-3xl font-bold text-white"> Your blood donation today could save someone's life tomorrow.</h1>
-                    <p className="mb-10 text-xl text-white">
+                <div className="max-w-4xl">
+                    <h1 className="mb-10 lg:text-6xl text-3xl font-bold text-white"> Your blood donation today could save someone's life tomorrow.</h1>
+                    <p className="mb-10 text-xl lg:text-2xl text-white">
                     Donating blood can improve your cardiovascular health and reduce the
                     risk of heart disease.
                     </p>
