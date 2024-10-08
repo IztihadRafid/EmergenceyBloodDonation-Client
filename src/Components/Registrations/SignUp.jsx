@@ -12,10 +12,9 @@ const SignUp = () => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const age = form.age.value;
-        const address = form.address.value;
+        const email = form.email.value;
         const phone = form.phone.value;
-       
+        const password = form.password.value;
         //VALIDATION OF CONTACT NUMBER
         const regex = /^01\d{9}$/;
         if (!regex.test(phone)) {
@@ -24,18 +23,36 @@ const SignUp = () => {
                 text: "Invalid Contact number",
             });
         }
-        const email = form.email.value;
-        const password = form.password.value;
-        const user = {name,age,address,phone,email,password}
-        console.log(user);
+        
+        
+        //const user = {name,phone,email,password}
+        //console.log(user);
+
         setSignUpError("")
         //reset validation
         
+
+        //Creating user by signing Up
         createUser(email,password)
         .then(result=>{
-            const user= result.user;
-            console.log(user);
-            Swal.fire("Registered Successfully");
+            console.log(result.user);
+         
+            const user = {email,name,phone}
+            fetch('http://localhost:5000/user',{
+                method: "POST",
+                headers :{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire("Registered Successfully");
+                }
+            })
+           
 
         })
         .catch(error=>{
@@ -58,18 +75,8 @@ const SignUp = () => {
                         </label>
                         <input type="text" name='name' placeholder="username" className="input input-bordered md:w-96" required />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Age</span>
-                        </label>
-                        <input type="text" name='age' placeholder="age" className="input input-bordered md:w-96" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Address</span>
-                        </label>
-                        <input type="text" name='address' placeholder="Present address" className="input input-bordered md:w-96" required />
-                    </div>
+                    
+                    
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Phone</span>

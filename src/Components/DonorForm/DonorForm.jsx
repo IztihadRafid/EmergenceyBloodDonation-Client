@@ -47,6 +47,21 @@ const DonorForm = () => {
             });
         }
         const donorInformation = { name, patientName, gender, age, email, contactNumber, bloodGroup, occupation, presentAddress,division,district, guardian, relation, guardianContact }
+        fetch('http://localhost:5000/donorinformation',{
+            method: "POST",
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(donorInformation)
+        })
+        .then(res=>{
+            res.json()
+        })
+        .then(data=>{
+            console.log(data);
+        })
+
+        //FORM SUCCESS TOAST
         if (donorInformation) {
             console.log(donorInformation);
             Swal.fire({
