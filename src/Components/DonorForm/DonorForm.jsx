@@ -1,8 +1,32 @@
 import Swal from "sweetalert2";
 import Navbar from "../Home/Navbar";
+import { useState } from "react";
 
-
+const divisions = {
+    Dhaka: ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Jamalpur", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Mymensingh", "Narayanganj", "Narsingdi", "Netrokona", "Rajbari", "Shariatpur", "Sherpur", "Tangail"],
+    Barisal: ["Barguna", "Barisal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur"],
+    Chattogram: ["Bandarban", "Brahmanbaria", "Chandpur", "Chittagong", "Comilla", "Cox's Bazar", "Feni", "Khagrachari", "Lakshmipur", "Noakhali", "Rangamati"],
+    Khulna: ["Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"],
+    Rajshahi: ["Bogra", "Joypurhat", "Naogaon", "Natore", "Nawabganj", "Pabna", "Rajshahi", "Sirajgonj"],
+    Rangpur: ["Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon"],
+    Sylhet: ["Habiganj", "Maulvibazar", "Sunamganj", "Sylhet"]
+  };
 const DonorForm = () => {
+    const [selectedDivision, setSelectedDivision] = useState("");
+    const [selectedDistrict, setSelectedDistrict] = useState("");
+    const [districts, setDistricts] = useState([]);
+  
+    const handleDivisionChange = (e) => {
+      const division = e.target.value;
+      setSelectedDivision(division);
+      setDistricts(divisions[division] || []); // Set districts based on selected division
+      setSelectedDistrict(""); // Reset district selection when division changes
+    };
+  
+    const handleDistrictChange = (e) => {
+      const district = e.target.value;
+      setSelectedDistrict(district);
+    };
     const handleDonorInfoForm = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -112,82 +136,44 @@ const DonorForm = () => {
                                         <input type="text" name="contactNumber" placeholder="Contact" className="input input-bordered" required />
                                     </div>
                                     <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-semibold">Division</span>
-                                        </label>
-                                        <select name="division" className="select select-bordered w-full max-w-xs">
-                                            <option>Barishal</option>
-                                            <option>Chattogram</option>
-                                            <option>Dhaka</option>
-                                            <option>Khulna</option>
-                                            <option>Mymensingh</option>
-                                            <option>Rajshahi</option>
-                                            <option>Rangpur</option>
-                                            <option>Sylhet</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-semibold">District</span>
-                                        </label>
-                                        <select name="district" className="select select-bordered w-full max-w-xs">
-                                            <option>Bandarban</option>
-                                            <option>Barguna</option>
-                                            <option>Brahmanbaria</option>
-                                            <option>Chandpur</option>
-                                            <option>Chattogram</option>
-                                            <option>Chuadanga</option>
-                                            <option>Cumilla</option>
-                                            <option>Dhaka</option>
-                                            <option>Dinajpur</option>
-                                            <option>Faridpur</option>
-                                            <option>Feni</option>
-                                            <option>Gaibandha</option>
-                                            <option>Gopalganj</option>
-                                            <option>Habiganj</option>
-                                            <option>Jamalmati</option>
-                                            <option>Jashore</option>
-                                            <option>Jhalokati</option>
-                                            <option>Jhenaidah</option>
-                                            <option>Joypurhat</option>
-                                            <option>Khagrachari</option>
-                                            <option>Khulna</option>
-                                            <option>Kishoreganj</option>
-                                            <option>Kurigram</option>
-                                            <option>Kushtia</option>
-                                            <option>Lakshmipur</option>
-                                            <option>Lalmonirhat</option>
-                                            <option>Madaripur</option>
-                                            <option>Magura</option>
-                                            <option>Manikganj</option>
-                                            <option>Meherpur</option>
-                                            <option>Moulvibazar</option>
-                                            <option>Munshiganj</option>
-                                            <option>Narayanganj</option>
-                                            <option>Narsingdi</option>
-                                            <option>Natore</option>
-                                            <option>Nawabganj</option>
-                                            <option>Netrakona</option>
-                                            <option>Nilphamari</option>
-                                            <option>Noakhali</option>
-                                            <option>Pabna</option>
-                                            <option>Panchagarh</option>
-                                            <option>Patuakhali</option>
-                                            <option>Pirganj</option>
-                                            <option>Rajbari</option>
-                                            <option>Rajshahi</option>
-                                            <option>Rangamati</option>
-                                            <option>Rangpur</option>
-                                            <option>Satkhira</option>
-                                            <option>Shariatpur</option>
-                                            <option>Sherpur</option>
-                                            <option>Sirajganj</option>
-                                            <option>Sunamganj</option>
-                                            <option>Sylhet</option>
-                                            <option>Tangail</option>
-                                        </select>
+        <label className="label">
+          <span className="label-text font-semibold">Division</span>
+        </label>
+        <select
+          name="division"
+          className="select select-bordered w-full max-w-xs"
+          value={selectedDivision}
+          onChange={handleDivisionChange}
+        >
+          <option value="">Select Division</option>
+          {Object.keys(divisions).map((division) => (
+            <option key={division} value={division}>
+              {division}
+            </option>
+          ))}
+        </select>
+      </div>
 
-                                    </div>
+      <div className="form-control mt-4">
+        <label className="label">
+          <span className="label-text font-semibold">District</span>
+        </label>
+        <select
+          name="district"
+          className="select select-bordered w-full max-w-xs"
+          disabled={!selectedDivision} // Disable if no division is selected
+          value={selectedDistrict}
+          onChange={handleDistrictChange}
+        >
+          <option value="">Select District</option>
+          {districts.map((district) => (
+            <option key={district} value={district}>
+              {district}
+            </option>
+          ))}
+        </select>
+      </div>
+
                                     
                                     <div className="form-control">
                                         <label className="label">
@@ -263,7 +249,7 @@ const DonorForm = () => {
                             </div>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-red-500 hover:bg-red-400 text-white">Submit</button>
+                            <button type="submit" className="btn bg-red-500 hover:bg-red-400 text-white">Submit</button>
                         </div>
                     </form>
                 </div>

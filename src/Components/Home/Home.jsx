@@ -7,6 +7,7 @@ import donationinfoPic from "../../assets/donationinfoPic.jpg"
 import faqPic from "../../assets/FaqPic.jpg" 
 import { Link } from 'react-router-dom';
 import PhoneDesign from './PhoneDesign';
+import HotSummary from './HotSummary';
 const Home = () => {
     useEffect(() => {
         const card = document.getElementById('faqCard');
@@ -77,6 +78,7 @@ const Home = () => {
                 </div>
             </div>
            </div>
+           <HotSummary></HotSummary>
            <PhoneDesign></PhoneDesign>
             <Footer></Footer>
 
