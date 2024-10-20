@@ -86,22 +86,14 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <img className="md:w-48 sm:w-10 mx-5" src={logoheader} alt="" />
+                <img className="md:w-48 w-10 mx-5" src={logoheader} alt="" />
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navlink}
                 </ul>
             </div>
-            <div className="navbar-end ">
-                <div className="form-control">
-                   <div className="">
-                   <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
-                   
-                   </div>
-                   
-                </div>
-            </div>
+            
             <img className="w-10 mx-5 rounded-full" alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         </div>
        </div>

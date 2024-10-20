@@ -19,6 +19,7 @@ import PrivateRoutes from './PrivateRoutes';
 import RequestBloodForm from './Components/Home/RequestBloodForm/RequestBloodForm';
 import DashboardContent from './Components/User Dashboard/DashboardContent';
 import BloodDonationHistory from './Components/User Dashboard/Pages/BloodDonationHistory';
+import Donors from './Components/DonorForm/Donors';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,9 +27,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path:'/',
+        path: '/',
         element: <Home></Home>,
-        loader: ()=>fetch('http://localhost:5000/donor')
+        loader: () => fetch('http://localhost:5000/donor')
       },
       {
         path: '/donationinfo',
@@ -54,7 +55,12 @@ const router = createBrowserRouter([
     element: <PrivateRoutes><DonorForm></DonorForm></PrivateRoutes>
   },
   {
-    path:"/requestbloodform",
+    path: '/donors',
+    element: <Donors></Donors>,
+    loader: () => fetch('http://localhost:5000/donor')
+  },
+  {
+    path: "/requestbloodform",
     element: <PrivateRoutes><RequestBloodForm></RequestBloodForm></PrivateRoutes>
   },
   {
@@ -65,12 +71,12 @@ const router = createBrowserRouter([
     path: '/history',
     element: <BloodDonationHistory></BloodDonationHistory>
   }
- 
+
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )

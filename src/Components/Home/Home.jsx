@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Footer from './Footer';
 import AboutUs from './AboutUs';
 import donationinfoPic from "../../assets/donationinfoPic.jpg"
+import donorBackground from "../../assets/donorbackground.jpg"
 import faqPic from "../../assets/FaqPic.jpg"
 import { Link, useLoaderData } from 'react-router-dom';
 import PhoneDesign from './PhoneDesign';
@@ -82,6 +83,20 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="card bg-base-100 image-full hover:opacity-90 shadow-xl">
+            <figure>
+              <img className='w-full'
+                src={donorBackground}
+                alt="Donorbackground image" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title flex justify-center items-center text-3xl text-center  p-3">All Donors</h2>
+             
+              <div className="card-actions justify-end">
+                <Link to="/donors" className="btn btn-error text-white text-lg">Donors</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className='lg:flex justify-center items-center '>
@@ -89,12 +104,8 @@ const Home = () => {
           <iframe  width="950" height="415" src="https://www.youtube.com/embed/YHxdhI5ZrHc?rel=0&controls=1&modestbranding=1"   title="YouTube video player"  ></iframe>
         </div>
       </div>
-      <h1 className='text-4xl'>Donors: {donors.length}</h1>
-      <div className='grid lg:grid-cols-3 gap-3'>
-      {
-        donors.map(donor=> <DonorCard key={donor._id} donor={donor}></DonorCard>)
-      }
-      </div>
+      
+      
       <HotSummary></HotSummary>
       <PhoneDesign></PhoneDesign>
       <Footer></Footer>
