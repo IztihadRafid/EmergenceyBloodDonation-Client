@@ -4,7 +4,7 @@ import { FaHandsHelping } from "react-icons/fa";
 const PhoneDesign = () => {
     return (
         <div className="max-w-7xl mx-auto">
-            <h1 className="text-center text-red-600 text-5xl  font-semibold p-10 mb-5">Why Emergency Blood Donation?</h1>
+            <h1 className="text-center text-red-600 text-2xl md:text-3xl lg:text-5xl  font-semibold p-10 mb-5">Why Emergency Blood Donation?</h1>
             <div className="lg:flex ">
                 <div className=" mx-auto">
                     <div className="hero bg-red-200 mb-5 rounded-3xl p-8">
@@ -21,7 +21,7 @@ const PhoneDesign = () => {
                         <div className="hero-content flex-col lg:flex-row ">
                             <p className="text-3xl text-red-700"><FaHandsHelping></FaHandsHelping></p>
                             <div>
-                                <h2 className="card-title font-bold text-3xl">Search By Location</h2>
+                                <h2 className="card-title font-bold text-3xl">Efficient Donor and Recipient Support</h2>
                                 <p className="text-xl"> Instantly connect with donors and recipients in real time ensuring faster and more efficient support when it matters most.</p>
 
                             </div>

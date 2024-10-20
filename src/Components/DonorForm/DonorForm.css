@@ -1,0 +1,15 @@
+@keyframes moveAndRotate {
+    0% {
+      transform: translateX(100%) rotate(20deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX() rotate(90deg);
+      opacity: 1;
+    }
+  }
+  
+  .animate-moveAndRotate {
+    animation: moveAndRotate 1s ease-out forwards;
+  }
+  

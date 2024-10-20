@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import Navbar from '../Navbar';
+import bloodanimation1 from "../../../assets/bloodanimation.png"
+import "../../DonorForm/DonorForm.css"
 const divisions = {
     // =====================================================  
     //                   Name of Division and Districts
@@ -83,10 +85,14 @@ const RequestBloodForm = () => {
     return (
        <div>
          <Navbar></Navbar>
+         
         <div className="hero">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold p-5">Patient Information</h1>
+                </div>
+                <div className='lg:flex'>
+                <div className=" animate-moveAndRotate"><img src={bloodanimation1} alt="animation" />
                 </div>
                 <div className="p-10 border border-red-300 rounded-lg bg-gradient-to-r from-red-50 via-red-100 to-red-50">
                     <form onSubmit={handleRequestBloodForm} className="card-body">
@@ -237,6 +243,8 @@ const RequestBloodForm = () => {
                         </div>
                     </form>
                 </div>
+                </div>
+                
             </div>
         </div>
        </div>
