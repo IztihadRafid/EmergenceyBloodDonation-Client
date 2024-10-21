@@ -10,6 +10,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import PhoneDesign from './PhoneDesign';
 import HotSummary from './HotSummary';
 import DonorCard from '../DonorForm/DonorCard';
+import RequestBloodCards from './RequestBloodForm/RequestBloodCards';
 const Home = () => {
   const donors = useLoaderData()
 
@@ -50,7 +51,11 @@ const Home = () => {
 
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
+
+      <RequestBloodCards></RequestBloodCards>
       <AboutUs></AboutUs>
+
+      {/* Three Cards for donation info, FAQ, All DonorsCards */}
       <div className='max-w-5xl md:w-2/3 mx-auto opacity-0 transition-opacity duration-1000 ' id="faqCard">
         <div className='grid lg:grid-cols-2 gap-10 m-10  ' >
           <div className="card bg-base-100 image-full hover:opacity-90 shadow-xl">
@@ -99,6 +104,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* YouTube Advertisement  */}
       <div className='lg:flex justify-center items-center '>
         <div className='mx-auto'>
           <iframe  width="950" height="415" src="https://www.youtube.com/embed/YHxdhI5ZrHc?rel=0&controls=1&modestbranding=1"   title="YouTube video player"  ></iframe>

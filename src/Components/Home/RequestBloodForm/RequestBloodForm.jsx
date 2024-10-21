@@ -67,9 +67,20 @@ const RequestBloodForm = () => {
         const reason = form.reason.value
 
         
-        const RequestPatientInformation = { name,  gender, age, email, contactNumber, bloodGroup, presentAddress, division,district, bag, relation,reason }
-        if (RequestPatientInformation) {
-            console.log(RequestPatientInformation);
+        const requestPatientInformation = { name,  gender, age, email, contactNumber, bloodGroup, presentAddress, division,district, bag, relation,reason }
+        fetch('http://localhost:5000/requestblood',{
+            method: 'POST',
+            headers :{
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(requestPatientInformation)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
+        if (requestPatientInformation) {
+            console.log(requestPatientInformation);
             Swal.fire({
                 position: "top-end",
                 icon: "success",

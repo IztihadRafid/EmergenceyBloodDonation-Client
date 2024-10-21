@@ -9,8 +9,8 @@ const Donors = () => {
         <div>
             <Navbar></Navbar>
             <div className="lg:flex justify-between items-center w-1/2 mx-auto">
-                <h1 className="text-5xl text-red-500 font-semibold text-center p-8">All Donors</h1>
-                <div className="flex">
+                <h1 className="md:text-3xl text-2xl lg:text-5xl text-red-500 font-semibold text-center p-8">All Donors</h1>
+                <div className="lg:flex">
                     <div className="navbar-center ">
                         <div className="form-control">
                             <div className="">
