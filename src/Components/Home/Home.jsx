@@ -52,7 +52,7 @@ const Home = () => {
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
 
-      <RequestBloodCards></RequestBloodCards>
+      {/* <RequestBloodCards></RequestBloodCards> */}
       <AboutUs></AboutUs>
 
       {/* Three Cards for donation info, FAQ, All DonorsCards */}
@@ -99,6 +99,21 @@ const Home = () => {
              
               <div className="card-actions justify-end">
                 <Link to="/donors" className="btn btn-error text-white text-lg">Donors</Link>
+              </div>
+            </div>
+          </div>
+          {/* Blood Requests Cards */}
+          <div className="card bg-base-100 image-full hover:opacity-90 shadow-xl">
+            <figure>
+              <img className='w-full'
+                src={donorBackground}
+                alt="Donorbackground image" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title flex justify-center items-center text-3xl text-center  p-3">All requests</h2>
+             
+              <div className="card-actions justify-end">
+                <Link to="/requestBlood" className="btn btn-error text-white text-lg">Blood Request</Link>
               </div>
             </div>
           </div>
