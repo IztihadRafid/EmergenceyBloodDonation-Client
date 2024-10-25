@@ -10,6 +10,11 @@ const Donors = () => {
     const [selectedBloodGroups, setSelectedBloodGroups] = useState([]);
     const [selectedDistrict, setSelectedDistrict] = useState('');
 
+
+    // State to track if "See All" is clicked
+    const [showAll, setShowAll] = useState(false);
+
+         
     //Blood Group Filter Checkbox
     const handleCheckBoxChannge = (bloodGroup => {
         setSelectedBloodGroups(prevSelected => {
@@ -23,10 +28,12 @@ const Donors = () => {
             }
         })
     })
-     // Function to handle dropdown change for district
-     const handleDistrictChange = (event) => {
+    // Function to handle dropdown change for district
+    const handleDistrictChange = (event) => {
         setSelectedDistrict(event.target.value);
     };
+
+
     // Filter donors based on selected blood groups
     //By default show all donors card
     // Filter donors based on selected blood groups and district
@@ -34,7 +41,13 @@ const Donors = () => {
         const matchesBloodGroup = selectedBloodGroups.length === 0 || selectedBloodGroups.includes(donor.bloodGroup);
         const matchesDistrict = !selectedDistrict || donor.district === selectedDistrict;
         return matchesBloodGroup && matchesDistrict;
+
+
     });
+
+
+    // Display limited or full filtered donors based on "showAll" state
+    const donorsToDisplay = showAll ? filteredDonors : filteredDonors.slice(0, 4);
     return (
         <div>
             <Navbar></Navbar>
@@ -58,6 +71,7 @@ const Donors = () => {
                             <h2 className="card-title text-2xl">Filter</h2>
                             <hr className="border-2 border-red-500 " />
                             <p className="text-xl ">Blood Group</p>
+                            {/* Filter By BLOOD groups */}
                             <ul className="menu  bg-red-100 text-lg text-black rounded-box p-2 mt-2">
                                 <div className="form-control">
                                     <label className="cursor-pointer label">
@@ -110,8 +124,9 @@ const Donors = () => {
                             </ul>
                             <hr className="border-1 border-red-500 " />
                             <div className="form-control">
+                                {/* Filter by Distritcs */}
                                 <label className="label text-xl">District</label>
-                                <select className="select select-bordered" value={selectedDistrict} onChange={handleDistrictChange}>
+                                <select className="select select-error" value={selectedDistrict} onChange={handleDistrictChange}>
                                     <option value="">All Districts</option>
                                     {/* Dhaka Division  */}
                                     <option value="Dhaka">Dhaka</option>
@@ -199,10 +214,19 @@ const Donors = () => {
                 </div>
                 <div className="w-3/4 mt-8 mx-auto grid lg:grid-cols-2 gap-8 ">
                     {
-                        filteredDonors.map(donor => <DonorCard key={donor._id} donor={donor}></DonorCard>)
+                        donorsToDisplay.map(donor => <DonorCard key={donor._id} donor={donor}></DonorCard>)
                     }
                 </div>
             </div>
+             {/* Show "See All" button only if not showing all donors */}
+             {!showAll && (
+                <div className="flex justify-center m-4">
+                    <button className="rounded-xl bg-red-600 font-semibold hover:bg-red-700 text-lg text-white px-8 py-4" onClick={() => setShowAll(true)}>
+                        See All
+                    </button>
+                </div>
+            )}
+           
         </div>
 
     );
