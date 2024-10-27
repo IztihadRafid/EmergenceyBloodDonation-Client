@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RequestPatientCard = ({requestBlood}) => {
-    const { name, gender, age, email, contactNumber, bloodGroup, presentAddress, division, district, bag, relation, reason } = requestBlood;
+    const { name, gender, age, email, contactNumber, bloodGroup, presentAddress, division, district, bag, relation, reason,formattedDate } = requestBlood;
     return (
         <div className="card lg:card-side  bg-red-100 border-2 px-3 border-red-600 ">
         {/* <figure>
@@ -22,6 +22,7 @@ const RequestPatientCard = ({requestBlood}) => {
             <p className="text-lg"><span className="font-semibold">Division: </span>{division}</p>
             <p className="text-lg"><span className="font-semibold">District: </span>{district}</p>
             <p className="text-lg"><span className="font-semibold">No. Bags: </span>{bag}</p>
+            <p className='text-lg'><span className='font-semibold'>Date: </span>{formattedDate}</p>
             </div>
             <button className="btn bg-red-500 hover:bg-red-400 text-white">Contact</button>
         </div>
