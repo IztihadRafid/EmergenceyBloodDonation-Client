@@ -14,7 +14,7 @@ const Donors = () => {
     // State to track if "See All" is clicked
     const [showAll, setShowAll] = useState(false);
 
-         
+
     //Blood Group Filter Checkbox
     const handleCheckBoxChannge = (bloodGroup => {
         setSelectedBloodGroups(prevSelected => {
@@ -51,24 +51,17 @@ const Donors = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="lg:flex justify-between items-center w-1/2 mx-auto">
+            <div className="text-center mx-auto">
                 <h1 className="md:text-3xl text-2xl lg:text-5xl text-red-500 font-semibold text-center p-8">All Donors</h1>
-                <div className="lg:flex">
-                    <div className="navbar-center ">
-                        <div className="form-control">
-                            <div className="">
-                                <input type="text" placeholder="Search" className="input input-bordered input-error w-full max-w-xs" />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
             <div className='w-[90%] mx-auto lg:flex '>
                 <div className="w-1/4   mt-8">
                     <div className="card w-80 bg-red-100 ">
                         <div className="card-body">
-                            <h2 className="card-title text-2xl">Filter</h2>
+                            <div className="flex items-center justify-start  space-x-3">
+                                <h2 className="card-title text-2xl">Filter</h2>
+                                <FaFilter className="text-red-500 text-xl"></FaFilter>
+                            </div>
                             <hr className="border-2 border-red-500 " />
                             <p className="text-xl ">Blood Group</p>
                             {/* Filter By BLOOD groups */}
@@ -218,15 +211,15 @@ const Donors = () => {
                     }
                 </div>
             </div>
-             {/* Show "See All" button only if not showing all donors */}
-             {!showAll && (
+            {/* Show "See All" button only if not showing all donors */}
+            {!showAll && (
                 <div className="flex justify-center m-4">
                     <button className="rounded-xl bg-red-600 font-semibold hover:bg-red-700 text-lg text-white px-8 py-4" onClick={() => setShowAll(true)}>
                         See All
                     </button>
                 </div>
             )}
-           
+
         </div>
 
     );
