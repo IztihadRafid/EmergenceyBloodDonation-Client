@@ -1,7 +1,9 @@
 
+import { Link } from "react-router-dom";
 import profilePicDonor from "../../assets/profileDonor.png";
 const DonorCard = ({ donor }) => {
-    const { name, patientName, gender, age, email, contactNumber, bloodGroup, occupation, presentAddress, division, district, guardian, relation, guardianContact, photo } = donor
+    const { _id,name, patientName, gender, age, email, contactNumber, bloodGroup, occupation, presentAddress, division, district, guardian, relation, guardianContact, photo } = donor
+   
     return (
         <div className="card lg:card-side bg-red-100 border-2 px-3 border-red-600 ">
             <figure>
@@ -19,7 +21,8 @@ const DonorCard = ({ donor }) => {
                 <p className="text-lg"><span className="font-semibold">Contact: </span>{contactNumber}</p> */}
                 <p className="text-lg"><span className="font-semibold">Address: </span>{presentAddress}</p>
                 <p className="text-lg"><span className="font-semibold">District: </span>{district}</p>
-                <button className="btn bg-red-500 hover:bg-red-400 text-white">Contact</button>
+                <Link to={`/donorDetails/${_id}`}><button className="btn bg-red-500 hover:bg-red-400 text-white">Details For Contact</button></Link>
+                
             </div>
 
         </div>

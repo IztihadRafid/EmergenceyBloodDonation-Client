@@ -21,6 +21,7 @@ import DashboardContent from './Components/User Dashboard/DashboardContent';
 import BloodDonationHistory from './Components/User Dashboard/Pages/BloodDonationHistory';
 import Donors from './Components/DonorForm/Donors';
 import RequestBloodCards from './Components/Home/RequestBloodForm/RequestBloodCards';
+import DonorDetails from './Components/DonorForm/DonorDetails';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
     path: '/donors',
     element: <Donors></Donors>,
     loader: () => fetch('http://localhost:5000/donor')
+  },
+  {
+    path:'/donorDetails/:id',
+    element: <DonorDetails></DonorDetails>,
+    loader: ({params})=>fetch(`http://localhost:5000/donor/${params.id}`)
   },
   {
     path: 'requestBlood',

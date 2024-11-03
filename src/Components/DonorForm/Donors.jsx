@@ -205,7 +205,7 @@ const Donors = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-3/4 mt-8 mx-auto grid lg:grid-cols-2 gap-8 ">
+                <div className="w-3/4 mt-8 mx-auto grid h-fit lg:grid-cols-2 gap-8 ">
                     {
                         donorsToDisplay.map(donor => <DonorCard key={donor._id} donor={donor}></DonorCard>)
                     }

@@ -248,12 +248,12 @@ const RequestBloodForm = () => {
                                                 <DatePicker
                                                     required
                                                     className="input input-bordered"
-                                                    selected={selectedDate} // Bind selected date to the state
-                                                    onChange={(date) => setSelectedDate(date)} // Update state when a date is selected
-                                                    dateFormat="dd/MM/yyyy" // Date format
-                                                    placeholderText="dd/mm/yyyy" // Placeholder text
-                                                    minDate={new Date()} // Prevent past dates
-                                                    isClearable // Allow clearing the date
+                                                    selected={selectedDate}
+                                                    onChange={(date) => setSelectedDate(date)} 
+                                                    dateFormat="dd/MM/yyyy" 
+                                                    placeholderText="dd/mm/yyyy" 
+                                                    minDate={new Date()} 
+                                                    isClearable
                                                 />
                                             </div>
                                             <div className="form-control">
