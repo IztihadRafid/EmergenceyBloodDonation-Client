@@ -25,8 +25,7 @@ const SignUp = () => {
         }
         
         
-        //const user = {name,phone,email,password}
-        //console.log(user);
+    
 
         setSignUpError("")
         //reset validation
@@ -50,6 +49,7 @@ const SignUp = () => {
                 console.log(data);
                 if(data.insertedId){
                     Swal.fire("Registered Successfully");
+                    form.reset()
                 }
             })
            

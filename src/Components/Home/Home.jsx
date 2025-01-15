@@ -11,6 +11,8 @@ import PhoneDesign from './PhoneDesign';
 import HotSummary from './HotSummary';
 import DonorCard from '../DonorForm/DonorCard';
 import RequestBloodCards from './RequestBloodForm/RequestBloodCards';
+import CarouselSlider from './CarouselSlider';
+
 const Home = () => {
   const donors = useLoaderData()
 
@@ -51,10 +53,11 @@ const Home = () => {
 
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
-
+      {/* Carosel Swiper */}
+      <CarouselSlider></CarouselSlider>
       {/* <RequestBloodCards></RequestBloodCards> */}
       <AboutUs></AboutUs>
-
+      
       {/* Three Cards for donation info, FAQ, All DonorsCards */}
       <div className='max-w-5xl md:w-2/3 mx-auto opacity-0 transition-opacity duration-1000 ' id="faqCard">
         <div className='grid lg:grid-cols-2 gap-10 m-10  ' >

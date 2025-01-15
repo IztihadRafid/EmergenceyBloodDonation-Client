@@ -17,7 +17,7 @@ const DashboardContent = () => {
       case 'history': return <BloodDonationHistory />;
       case 'request': return <RequestBlood />;
       case 'donate': return <DonateBlood />;
-      case 'tracker': return <AvailableBloodTracker />;
+      // case 'tracker': return <AvailableBloodTracker />;
       case 'chat': return <Chat />;
       case 'profile': return <Profile />;
       default: return <Profile />;

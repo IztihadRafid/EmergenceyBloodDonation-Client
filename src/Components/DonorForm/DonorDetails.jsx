@@ -11,20 +11,17 @@ const DonorDetails = () => {
             <Navbar></Navbar>
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-5xl font-semibold p-5">Donor Information</h1>
-                <div className=" bg-white shadow-xl border-2 border-red-400 shadow-slate-200  m-12 p-10 flex-col rounded-2xl">
-                    <div className="">
-                        <figure>
-                            <img className="w-60"
-                                src={profile}
-                                alt="Movie" />
-                        </figure>
+                <div className=" bg-white shadow-xl border-2 border-red-400 shadow-slate-200  m-12 lg:p-10 md:p-8 p-2 rounded-2xl">
+                    <div className="lg:flex    lg:justify-start  lg:items-end ">
+                         <img className="w-52 ml-10"src={profile} alt="Movie" />
+                        <h2 className="card-title ml-16 lg:ml-0  lg:text-4xl text-2xl "> {name}</h2>
                     </div>
-                    <hr className="border-t border-gray-300 w-full" />
+
                     <div className="card-body">
                         <div className="card-body space-y-3">
-                            <h2 className="card-title lg:text-3xl text-xl">Name: <span className="lg:text-3xl text-xl ml-2">{name}</span></h2>
-                            <hr className="border-t border-gray-300 w-full" />
 
+
+                            <hr className="border-t border-gray-300 w-full" />
                             <p className="lg:text-2xl text-xl">Gender: <span className="lg:text-2xl text-xl ml-2">{gender}</span></p>
                             <hr className="border-t border-gray-300 w-full" />
 

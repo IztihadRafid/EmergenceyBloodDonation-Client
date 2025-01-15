@@ -22,8 +22,6 @@ import BloodDonationHistory from './Components/User Dashboard/Pages/BloodDonatio
 import Donors from './Components/DonorForm/Donors';
 import RequestBloodCards from './Components/Home/RequestBloodForm/RequestBloodCards';
 import DonorDetails from './Components/DonorForm/DonorDetails';
-import AdminDashboard from './Components/User Dashboard/Admin/AdminDashboard';
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,7 +50,6 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp></SignUp>
       }
-      
     ]
   },
   {
@@ -85,10 +82,6 @@ const router = createBrowserRouter([
   {
     path: '/history',
     element: <BloodDonationHistory></BloodDonationHistory>
-  },
-  {
-    path:'/admindashboard',
-    element: <AdminDashboard></AdminDashboard>
   }
 
 ]);

@@ -19,7 +19,18 @@ const Navbar = () => {
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
         } to='/'>Home</NavLink></li>
-        
+        {/* <li><NavLink className={({ isActive }) =>
+            isActive
+                ? "text-red-600 hover:text-red-700  font-medium text-lg   border-b-4 border-red-600"
+                : "text-red-600 hover:border-b-4  border-red-400 text-lg font-medium  "
+        } to='/DonationInfo'>Donation Info</NavLink>
+        </li> */}
+        {/* <li><NavLink className={({ isActive }) =>
+            isActive
+                ? "text-red-600 hover:text-red-700  font-medium text-lg   border-b-4 border-red-600"
+                : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  "
+        } to='/faq'>FAQ</NavLink>
+        </li> */}
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg   border-b-4 border-red-600"
@@ -36,13 +47,12 @@ const Navbar = () => {
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
         } to='/donate'>Donate now</NavLink>
         </li>
-        <li><NavLink className={({ isActive }) =>
+        {/* <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
-        } to='/admindashboard'>Admin</NavLink>
-        </li>
-        
+        } to='/requestbloodform'>Request Blood</NavLink>
+        </li> */}
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
