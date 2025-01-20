@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext)
@@ -31,9 +32,9 @@ const Login = () => {
                     icon: "success",
                     title: "Logged in successfully",
                     showConfirmButton: false,
-                    timer: 1500,  
-                  });
-                  navigate(from, {replace:true})
+                    timer: 1500,
+                });
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error);
@@ -74,7 +75,10 @@ const Login = () => {
                         {
                             signInSuccess && <p className="text-green-600 text-lg font-medium w-2/3">{signInSuccess}</p>
                         }
-                        <p>Don`t have Account? Please <Link className="text-blue-500" to='/signup'>Sign UP</Link></p>
+                        <div className='flex justify-center items-center my-4'>
+                            <SocialLogin></SocialLogin>
+                        </div>
+                        <p className='text-center'>Don`t have Account? Please <Link className="text-blue-500" to='/signup'>Sign UP</Link></p>
                     </form>
                 </div>
             </div>

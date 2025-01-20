@@ -3,6 +3,8 @@ import Navbar from "../Home/Navbar";
 import { useState } from "react";
 import bloodanimation1 from "../../assets/bloodanimation.png"
 import "../DonorForm/DonorForm.css"
+import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 const divisions = {
     // =====================================================  
     // Name of Division and Districts
@@ -19,7 +21,7 @@ const DonorForm = () => {
     const [selectedDivision, setSelectedDivision] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [districts, setDistricts] = useState([]);
-
+    const axiosSecure = useAxiosSecure();
     const handleDivisionChange = (e) => {
         const division = e.target.value;
         setSelectedDivision(division);
@@ -79,19 +81,32 @@ const DonorForm = () => {
         //===============================================
         //send data to the server
         //===============================================
-        fetch('http://localhost:5000/donor', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(donorInformation)
+        // fetch('http://localhost:5000/donor', {
+        //     method: "POST",
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(donorInformation)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        axiosSecure.post("/donor",donorInformation)
+        .then(res => {
+            // console.log(res.data);
+            //FORM SUCCESS TOAST
+            if(res.data.insertedId){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: `${name}, Your Form Submitted`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-
-        //FORM SUCCESS TOAST
+        
         if (donorInformation) {
             console.log(donorInformation);
             Swal.fire({

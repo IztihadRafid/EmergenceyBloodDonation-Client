@@ -2,10 +2,38 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import profile from "../../assets/profileDonor.png"
 import Footer from "../Home/Footer";
+import Swal from "sweetalert2";
 
 const DonorDetails = () => {
     const donor = useLoaderData()
     const { _id, name, patientName, gender, age, email, contactNumber, bloodGroup, occupation, presentAddress, division, district, guardian, relation, guardianContact, photo } = donor
+
+
+    //handle contact
+    const handleContact =(_id)=>{
+        console.log(_id);
+        Swal.fire({
+            title: "Contact Donor",
+            text: "Are you sure you want to contact this donor?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Contact!",
+            cancelButtonText: "Cancel",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Show contact information
+              Swal.fire({
+                title: "Donor Contact Details",
+                html: `
+                  <p>Email: <a href="mailto:${donor.email}" class="text-blue-600">${donor.email}</a></p>
+                  <p>Phone: <a href="tel:${donor.phone}" class="text-blue-600">${donor.phone}</a></p>
+                `,
+                icon: "info",
+              });
+            }
+          });
+    }
+
     return (
         <div className="bg-red-50">
             <Navbar></Navbar>
@@ -51,7 +79,7 @@ const DonorDetails = () => {
                         </div>
 
                         <div className="card-actions justify-center">
-                            <button className="btn btn-block btn-error text-white font-semibold text-lg">Contact</button>
+                            <button onClick={()=>handleContact(_id)} className="btn btn-block btn-error text-white font-semibold text-lg">Contact</button>
                         </div>
                     </div>
                 </div>

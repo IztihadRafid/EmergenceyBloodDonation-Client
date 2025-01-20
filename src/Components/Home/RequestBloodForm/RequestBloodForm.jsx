@@ -6,6 +6,8 @@ import "../../DonorForm/DonorForm.css"
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { format } from "date-fns";
+import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const divisions = {
     // =====================================================  
@@ -24,6 +26,7 @@ const RequestBloodForm = () => {
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [districts, setDistricts] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null)
+    const axiosSecure = useAxiosSecure()
     const handleDivisionChange = (e) => {
         const division = e.target.value;
         setSelectedDivision(division);
@@ -76,28 +79,24 @@ const RequestBloodForm = () => {
 
 
         const requestPatientInformation = { name, gender, age, email, contactNumber, bloodGroup, presentAddress, division, district, bag, relation, reason, formattedDate }
-        fetch('http://localhost:5000/requestblood', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(requestPatientInformation)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-        if (requestPatientInformation) {
-            console.log(requestPatientInformation);
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Requested Successfully",
-                showConfirmButton: false,
-                timer: 1500,
+       
 
-            });
-        }
+        axiosSecure.post('/requestblood',requestPatientInformation)
+        .then(res=>{
+            // console.log(res.data);
+            if (requestPatientInformation) {
+                // console.log(requestPatientInformation);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Requested Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+    
+                });
+            }
+        })
+        
 
 
     }

@@ -6,6 +6,7 @@ import MarqueeHeading from "./MarqueeHeading/MarqueeHeading";
 import Marquee from "react-fast-marquee";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    
     const handleSignOut = () => {
         logOut()
             .then()
@@ -19,7 +20,12 @@ const Navbar = () => {
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
         } to='/'>Home</NavLink></li>
-        
+        <li><NavLink className={({ isActive }) =>
+            isActive
+                ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
+                : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
+        } to='/donate'>Donate now</NavLink>
+        </li>
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg   border-b-4 border-red-600"
@@ -30,24 +36,30 @@ const Navbar = () => {
                 user ? <button onClick={handleSignOut} className=" text-red-600 hover:text-red-700  font-medium text-lg   border-b-4 border-red-600">SignOut</button> : <Link to='/login'><button className="text-red-600 hover:border-b-4 border-red-400 text-lg font-medium ">Login</button></Link>
             }
         </li>
-        <li><NavLink className={({ isActive }) =>
-            isActive
-                ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
-                : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
-        } to='/donate'>Donate now</NavLink>
-        </li>
-        <li><NavLink className={({ isActive }) =>
+        
+        {/* <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
         } to='/admindashboard'>Admin</NavLink>
-        </li>
+        </li> */}
         
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
-        } to='/userprofile'>user profile</NavLink>
+        } to='/userprofile'>dashboard</NavLink>
+        </li>
+        <li><NavLink className={({ isActive }) =>
+            isActive
+                ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
+                : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
+        } to='/dashboard/profile'>Dashboard</NavLink>
+        </li>
+        <li>
+            {
+                user ? <p className="text-lg font-semibold">{user.email}</p> : <p className="text-lg font-semibold text-red-600">user</p>
+            }
         </li>
     </>
     return (
@@ -72,7 +84,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-60 p-2 shadow">
                         {navlink}
                     </ul>
                 </div>
