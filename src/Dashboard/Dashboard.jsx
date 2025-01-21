@@ -30,7 +30,7 @@ const Dashboard = () => {
                                 //if Admin
                                 <>
                                     <li>
-                                        <NavLink to={'/dashboard/adminprofile'}><FaUser></FaUser>Admin Profile</NavLink>
+                                        <NavLink to={'/dashboard/profile'}><FaUser></FaUser>Admin Profile</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={'/dashboard/allusers'}><FaUsers></FaUsers> All Users <span>{allusers.length}</span>  </NavLink>

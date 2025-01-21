@@ -22,6 +22,8 @@ import AdminDashboard from './Components/User Dashboard/Admin/AdminDashboard';
 import Dashboard from './Dashboard/Dashboard';
 import MyProfile from './Dashboard/MyProfile';
 import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query';
+import AllUsers from './Dashboard/AllUsers/AllUsers';
+import AllDonors from './Dashboard/AllUsers/AllDonors/AllDonors';
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -100,6 +102,14 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <MyProfile></MyProfile>
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'alldonors',
+        element: <AllDonors></AllDonors>
       }
     ]
   }

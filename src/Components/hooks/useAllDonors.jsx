@@ -3,14 +3,15 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAllDonors = () => {
     //tan stack query
     const axiosSecure = useAxiosSecure();
-    const { data: alldonors = [] } = useQuery({
+    const { refetch,data: alldonors = [] } = useQuery({
         queryKey: ['alldonors'],
         queryFn: async () => {
             const res = await axiosSecure.get('/donor')
             return res.data
+            console.log(res.data);
         }
     })
-    return [alldonors]
+    return [alldonors,refetch]
 };
 
 export default useAllDonors;
