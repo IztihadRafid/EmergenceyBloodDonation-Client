@@ -26,7 +26,7 @@ const DonorDetails = () => {
                 title: "Donor Contact Details",
                 html: `
                   <p>Email: <a href="mailto:${donor.email}" class="text-blue-600">${donor.email}</a></p>
-                  <p>Phone: <a href="tel:${donor.phone}" class="text-blue-600">${donor.phone}</a></p>
+                  <p>Phone: <a href="tel:${donor.phone}" class="text-blue-600">${donor.contactNumber}</a></p>
                 `,
                 icon: "info",
               });

@@ -71,7 +71,7 @@ const AllUsers = () => {
                                     </div>
                                 </td>
                                 <td>{allSingleUser?.email || "unknown"}</td>
-                                <td>{allSingleUser?.phone || "unknown"}</td>
+                                <td>{allSingleUser?.contactNumber || "unknown"}</td>
                                 <th>
                                     <button onClick={() => handleDeleteUser(allSingleUser._id)} className="btn btn-ghost text-red-500 text-lg "><FaTrash></FaTrash> </button>
                                 </th>

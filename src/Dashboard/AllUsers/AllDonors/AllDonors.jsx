@@ -42,8 +42,8 @@ const AllDonors = () => {
                 <h2 className="text-center text-4xl font-bold  text-red-600">All Donors({alldonors.length})</h2>
             </div>
 
-            <div className="overflow-x-auto">
-                <table className="table w-full bg-red-50">
+            <div className="overflow-x-auto rounded-xl">
+                <table className="table w-full bg-red-50 ">
                     {/* head */}
                     <thead className="my-3">
                         <tr className="bg-red-500  text-lg font-semibold text-white">
@@ -76,7 +76,7 @@ const AllDonors = () => {
                                     </div>
                                 </td>
                                 <td>{allSingleDonor?.email || "unknown"}</td>
-                                <td>{allSingleDonor?.phone || "unknown"}</td>
+                                <td>{allSingleDonor?.contactNumber || "unknown"}</td>
                                 <td>{allSingleDonor?.bloodGroup || "not found"}</td>
                                 <td>{allSingleDonor?.age || "unknown"}</td>
                                 <td>{allSingleDonor?.presentAddress || "unknown"}</td>
