@@ -11,12 +11,13 @@ import { GiMedicines } from 'react-icons/gi';
 import useAllUsers from '../Components/hooks/useAllUsers';
 import useAllDonors from '../Components/hooks/useAllDonors';
 import useAllRequests from '../Components/hooks/useAllRequests';
+import useAdmin from '../Components/hooks/useAdmin';
 
 const Dashboard = () => {
     const [allusers] = useAllUsers()
     const [alldonors]= useAllDonors()
     const [allrequests]= useAllRequests()
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
     return (
         <div>
             <Navbar></Navbar>
@@ -42,7 +43,7 @@ const Dashboard = () => {
                                         <NavLink to={'/dashboard/allrequests'}><GiMedicines />All Requests <span>{allrequests.length}</span>  </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={'/dashboard/history'}><FaHistory />Donation History</NavLink>
+                                        <NavLink to={'/dashboard/donationhistory'}><FaHistory />Donation History</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={'/requestbloodform'}><MdBloodtype />Request Blood</NavLink>
@@ -60,10 +61,10 @@ const Dashboard = () => {
                                 //if not Admin
                                 <>
                                     <li>
-                                        <NavLink to={'/dashboard/profile'}><FaUser></FaUser>Profile</NavLink>
+                                        <NavLink to={'/dashboard/userprofile'}><FaUser></FaUser>User Profile</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={'/dashboard/history'}><FaHistory />Donation History</NavLink>
+                                        <NavLink to={'/dashboard/myhistory'}><FaHistory />Donation History</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={'/requestbloodform'}><MdBloodtype />Request Blood</NavLink>
