@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MarqueeHeading from "./MarqueeHeading/MarqueeHeading";
 import Marquee from "react-fast-marquee";
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     
@@ -15,6 +16,7 @@ const Navbar = () => {
 
 
     const navlink = <>
+    
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"

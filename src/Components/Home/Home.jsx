@@ -12,6 +12,7 @@ import HotSummary from './HotSummary';
 import DonorCard from '../DonorForm/DonorCard';
 import RequestBloodCards from './RequestBloodForm/RequestBloodCards';
 import CarouselSlider from './CarouselSlider';
+import TermsAndPolicy from '../TermsAndPolicy/TermsAndPolicy';
 
 const Home = () => {
   const donors = useLoaderData()
@@ -50,7 +51,7 @@ const Home = () => {
 
   return (
     <div className='bg-gradient-to-r from-red-400 via-red-100 to-red-400'>
-
+      <TermsAndPolicy></TermsAndPolicy>
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
       {/* Carosel Swiper */}

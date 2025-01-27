@@ -25,6 +25,7 @@ import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-que
 import AllUsers from './Dashboard/AllUsers/AllUsers';
 import AllDonors from './Dashboard/AllUsers/AllDonors/AllDonors';
 import AllRequests from './Dashboard/AllRequests/AllRequests';
+import AdminRoute from './AdminRoutes/AdminRoute';
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -97,7 +98,7 @@ const router = createBrowserRouter([
 
   //update dashboard,
   {
-    path: 'dashboard',
+    path: '/dashboard',
     element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       {
@@ -107,7 +108,7 @@ const router = createBrowserRouter([
       //admin routes
       {
         path: 'allusers',
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: 'alldonors',

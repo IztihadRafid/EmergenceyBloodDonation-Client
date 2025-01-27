@@ -18,6 +18,7 @@ const Dashboard = () => {
     const [alldonors]= useAllDonors()
     const [allrequests]= useAllRequests()
     const [isAdmin] = useAdmin()
+    console.log(isAdmin);
     return (
         <div>
             <Navbar></Navbar>
@@ -61,7 +62,13 @@ const Dashboard = () => {
                                 //if not Admin
                                 <>
                                     <li>
-                                        <NavLink to={'/dashboard/userprofile'}><FaUser></FaUser>User Profile</NavLink>
+                                        <NavLink to={'/dashboard/profile'}><FaUser></FaUser>User Profile</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to={'/donors'}><FaPeopleCarry />All Donors <span>{alldonors.length}</span>  </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to={'/requestBlood'}><GiMedicines />All Requests <span>{allrequests.length}</span>  </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={'/dashboard/myhistory'}><FaHistory />Donation History</NavLink>
