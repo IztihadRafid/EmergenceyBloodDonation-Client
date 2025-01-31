@@ -56,6 +56,7 @@ const AllUsers = () => {
                                 text: `user has been deleted.`,
                                 icon: "success"
                             });
+                            
                         }
                     })
             }
@@ -65,10 +66,10 @@ const AllUsers = () => {
         <div>
             <div>
                 <h2 className="text-center text-4xl font-bold p-1 lg:m-8 m-5 text-red-600">All Users</h2>
-                <p className="text-center text-3xl text-red-500 font-semibold mb-5">Number of Users: {allusers.length}</p>
+                <p className="text-center text-3xl text-red-500 font-semibold mb-5">Number of Users: {allusers?.length}</p>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto m-2 rounded-xl">
                 <table className="table w-full">
                     {/* head */}
                     <thead className="my-3">

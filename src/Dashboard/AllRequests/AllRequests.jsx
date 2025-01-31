@@ -39,7 +39,7 @@ const AllRequests = () => {
                 <h2 className="text-center text-4xl font-bold  text-red-600">All Donors({allrequests.length})</h2>
             </div>
 
-            <div className="overflow-x-auto rounded-xl">
+            <div className="overflow-x-auto rounded-xl m-2">
                 <table className="table w-full bg-red-50 ">
                     {/* head */}
                     <thead className="my-3">

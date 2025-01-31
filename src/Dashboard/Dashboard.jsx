@@ -18,7 +18,7 @@ const Dashboard = () => {
     const [alldonors]= useAllDonors()
     const [allrequests]= useAllRequests()
     const [isAdmin] = useAdmin()
-    console.log(isAdmin);
+    // console.log(isAdmin);
     return (
         <div>
             <Navbar></Navbar>
