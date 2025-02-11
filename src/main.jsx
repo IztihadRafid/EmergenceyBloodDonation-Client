@@ -26,6 +26,7 @@ import AllUsers from './Dashboard/AllUsers/AllUsers';
 import AllDonors from './Dashboard/AllUsers/AllDonors/AllDonors';
 import AllRequests from './Dashboard/AllRequests/AllRequests';
 import AdminRoute from './AdminRoutes/AdminRoute';
+import LiveChat from './Components/Chat/LiveChat';
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <MyProfile></MyProfile>
+      },
+      {
+        path: 'livechat',
+        element: <LiveChat></LiveChat>
       },
       //admin routes
       {

@@ -134,12 +134,19 @@ const DonorDetails = () => {
                     if (result.isConfirmed) {
                         // Check if donor object is valid
                         if (donor && donor.email && donor.contactNumber) {
+                            const formatPhoneNumber = (number) => {
+                                if (number.startsWith("0")) {
+                                    number = number.substring(1); // Remove leading 0
+                                }
+                                return `+880${number}`;
+                            };
+                            const callNumber = formatPhoneNumber(contactNumber);
                             // Show contact information
                             Swal.fire({
                                 title: "Donor Contact Details",
                                 html: `
                               <p>Email: <a href="mailto:${donor?.email}" class="text-blue-600">${donor.email}</a></p>
-                              <p>Phone: <a href="tel:${donor?.contactNumber}" class="text-blue-600">${donor.contactNumber}</a></p>
+                              <p>Phone: <a href="tel:${callNumber}" class="text-blue-600">${donor.contactNumber}</a></p>
                             `,
                                 icon: "info",
                             });

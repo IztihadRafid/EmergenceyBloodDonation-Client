@@ -56,7 +56,7 @@ const Dashboard = () => {
                                         <NavLink to={'/dashboard/tracker'}><GoGraph />Blood Tracker</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={'/dashboard/chat'}><IoIosChatbubbles />Chat</NavLink>
+                                        <NavLink to={'/dashboard/livechat'}><IoIosChatbubbles />Chat</NavLink>
                                     </li>
                                 </> :
                                 //if not Admin
@@ -83,7 +83,7 @@ const Dashboard = () => {
                                         <NavLink to={'/dashboard/tracker'}><GoGraph />Blood Tracker</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={'/dashboard/chat'}><IoIosChatbubbles />Chat</NavLink>
+                                        <NavLink to={'/dashboard/livechat'}><IoIosChatbubbles />Chat</NavLink>
                                     </li>
                                 </>
                         }
