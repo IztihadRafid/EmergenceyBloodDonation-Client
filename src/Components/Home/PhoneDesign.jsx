@@ -1,4 +1,5 @@
-import androidViewPic from "../../assets/androidView.jpg"
+// import androidViewPic from "../../assets/androidView.jpg"
+import androidViewPic from "../../assets/mobileView.png"
 import { FaSearch } from "react-icons/fa";
 import { FaHandsHelping } from "react-icons/fa";
 const PhoneDesign = () => {

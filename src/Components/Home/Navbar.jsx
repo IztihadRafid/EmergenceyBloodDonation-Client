@@ -46,12 +46,12 @@ const Navbar = () => {
         } to='/admindashboard'>Admin</NavLink>
         </li> */}
         
-        <li><NavLink className={({ isActive }) =>
+        {/* <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
                 : "text-red-600 hover:border-b-4 border-red-400 text-lg font-medium  rounded"
         } to='/userprofile'>dashboard</NavLink>
-        </li>
+        </li> */}
         <li><NavLink className={({ isActive }) =>
             isActive
                 ? "text-red-600 hover:text-red-700  font-medium text-lg  rounded border-b-4 border-red-600"
@@ -90,7 +90,7 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <img className="md:w-48 w-10 mx-5" src={logoheader} alt="" />
+                <img className="md:w-48 w-28  mx-5" src={logoheader} alt="" />
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -98,7 +98,7 @@ const Navbar = () => {
                 </ul>
             </div>
             
-            <img className="w-10 mx-5 rounded-full" alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            <img className="w-10 mx-5 ml-36 md:ml-0 rounded-full" alt="user" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         </div>
        </div>
     );

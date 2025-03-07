@@ -95,6 +95,11 @@ const RequestBloodForm = () => {
     
                 });
             }
+
+           
+                // Find matching donors & notify them
+                return axiosSecure.post('/match-donors', { bloodGroup, district });
+      
         })
         
 

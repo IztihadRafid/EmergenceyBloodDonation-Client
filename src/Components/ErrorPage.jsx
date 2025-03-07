@@ -1,5 +1,5 @@
 import React from 'react';
-import errorPage from "../assets/errorPage.jpg"
+import errorPage from "../assets/errPage.jpg"
 const ErrorPage = () => {
     return (
         // <div className='h-screen'>

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import {  createBrowserRouter, RouterProvider,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Root from './Components/Root/Root';
 import ErrorPage from './Components/ErrorPage';
 import Home from './Components/Home/Home';
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/signup',
-        element:<SignUp></SignUp>
+        element: <SignUp></SignUp>
       }
 
     ]
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     loader: ({ params }) => fetch(`http://localhost:5000/donor/${params.id}`)
   },
   {
-    path: 'requestBlood',
+    path: '/requestBlood',
     element: <RequestBloodCards></RequestBloodCards>,
     loader: () => fetch('http://localhost:5000/requestblood')
   },
@@ -121,7 +121,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'allrequests',
-        element:<AllRequests></AllRequests>
+        element: <AllRequests></AllRequests>
       }
     ]
   }

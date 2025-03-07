@@ -125,11 +125,11 @@ const Home = () => {
       </div>
 
       {/* YouTube Advertisement  */}
-      <div className='lg:flex justify-center items-center '>
+      {/* <div className='lg:flex justify-center items-center '>
         <div className='mx-auto'>
           <iframe  width="950" height="415" src="https://www.youtube.com/embed/YHxdhI5ZrHc?rel=0&controls=1&modestbranding=1"   title="YouTube video player"  ></iframe>
         </div>
-      </div>
+      </div> */}
       
       
       <HotSummary></HotSummary>
