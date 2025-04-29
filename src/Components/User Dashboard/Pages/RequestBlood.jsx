@@ -24,7 +24,7 @@ const RequestBlood = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://emergency-blood-donation-server.vercel.app/requestblood', formData);
+      const response = await axios.post('http://localhost:5000/requestblood', formData);
 
       if (response.status === 200 || response.status === 201) {
         Swal.fire({

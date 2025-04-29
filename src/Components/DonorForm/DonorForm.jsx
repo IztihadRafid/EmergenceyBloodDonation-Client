@@ -87,7 +87,7 @@ const DonorForm = () => {
         //===============================================
         //send data to the server
         //===============================================
-        // fetch('https://emergency-blood-donation-server.vercel.app', {
+        // fetch('http://localhost:5000', {
         //     method: "POST",
         //     headers: {
         //         'content-type': 'application/json'

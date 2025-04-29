@@ -4,11 +4,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MarqueeHeading from "./MarqueeHeading/MarqueeHeading";
 import Marquee from "react-fast-marquee";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const {  logOut } = useContext(AuthContext)
     // console.log(user?.displayName);
-
+    const {user} = useAuth()
     const handleSignOut = () => {
         logOut()
             .then()

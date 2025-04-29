@@ -12,6 +12,8 @@ import HotSummary from './HotSummary';
 import DonorCard from '../DonorForm/DonorCard';
 import RequestBloodCards from './RequestBloodForm/RequestBloodCards';
 import CarouselSlider from './CarouselSlider';
+import Marquee from 'react-fast-marquee';
+import FeedBackMarquee from './FeedBackMarquee';
 
 
 const Home = () => {
@@ -51,14 +53,21 @@ const Home = () => {
 
   return (
     <div className='bg-gradient-to-r from-red-400 via-red-100 to-red-400'>
-      
+
       {/* <Navbar></Navbar> */}
       <Banner></Banner>
+      {/* FEEDBACK MARQUEE */}
+      <div className='w-[80%] mx-auto my-20'>
+        <h2 className='text-center font-medium text-red-500 text-5xl my-8'>FeedBacks</h2>
+        <Marquee>
+          <FeedBackMarquee></FeedBackMarquee>
+        </Marquee>
+      </div>
       {/* Carosel Swiper */}
       <CarouselSlider></CarouselSlider>
       {/* <RequestBloodCards></RequestBloodCards> */}
       <AboutUs></AboutUs>
-      
+
       {/* Three Cards for donation info, FAQ, All DonorsCards */}
       <div className='max-w-5xl md:w-2/3 mx-auto opacity-0 transition-opacity duration-1000 ' id="faqCard">
         <div className='grid lg:grid-cols-2 gap-10 m-10  ' >
@@ -100,7 +109,7 @@ const Home = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title flex justify-center items-center text-3xl text-center  p-3">All Donors</h2>
-             
+
               <div className="card-actions justify-end">
                 <Link to="/donors" className="btn btn-error text-white text-lg">Donors</Link>
               </div>
@@ -115,7 +124,7 @@ const Home = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title flex justify-center items-center text-3xl text-center  p-3">All requests</h2>
-             
+
               <div className="card-actions justify-end">
                 <Link to="/requestBlood" className="btn btn-error text-white text-lg">Blood Request</Link>
               </div>
@@ -124,14 +133,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* YouTube Advertisement  */}
-      {/* <div className='lg:flex justify-center items-center '>
-        <div className='mx-auto'>
-          <iframe  width="950" height="415" src="https://www.youtube.com/embed/YHxdhI5ZrHc?rel=0&controls=1&modestbranding=1"   title="YouTube video player"  ></iframe>
-        </div>
-      </div> */}
-      
-      
       <HotSummary></HotSummary>
       <PhoneDesign></PhoneDesign>
       <Footer></Footer>

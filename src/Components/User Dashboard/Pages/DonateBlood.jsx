@@ -23,7 +23,7 @@ const DonateBlood = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('https://emergency-blood-donation-server.vercel.app/blood-donation', {
+      const response = await axios.post('http://localhost:5000/blood-donation', {
         ...formData,
         createdAt: new Date(),
       });

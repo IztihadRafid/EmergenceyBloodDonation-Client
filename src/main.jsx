@@ -27,6 +27,8 @@ import AllDonors from './Dashboard/AllUsers/AllDonors/AllDonors';
 import AllRequests from './Dashboard/AllRequests/AllRequests';
 import AdminRoute from './AdminRoutes/AdminRoute';
 import LiveChat from './Components/Chat/LiveChat';
+import Message from './Components/Message/Message';
+import Feedbacks from './Components/Message/Feedbacks';
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://emergency-blood-donation-server.vercel.app')
+        loader: () => fetch('http://localhost:5000')
       },
       {
         path: '/donationinfo',
@@ -67,17 +69,17 @@ const router = createBrowserRouter([
   {
     path: '/donors',
     element: <Donors></Donors>,
-    loader: () => fetch('https://emergency-blood-donation-server.vercel.app/donor')
+    loader: () => fetch('http://localhost:5000/donor')
   },
   {
     path: '/donorDetails/:id',
     element: <PrivateRoutes><DonorDetails></DonorDetails></PrivateRoutes>,
-    loader: ({ params }) => fetch(`https://emergency-blood-donation-server.vercel.app/donor/${params.id}`)
+    loader: ({ params }) => fetch(`http://localhost:5000/donor/${params.id}`)
   },
   {
     path: '/requestBlood',
     element: <RequestBloodCards></RequestBloodCards>,
-    loader: () => fetch('https://emergency-blood-donation-server.vercel.app/requestblood')
+    loader: () => fetch('http://localhost:5000/requestblood')
   },
   {
     path: "/requestbloodform",
@@ -110,6 +112,10 @@ const router = createBrowserRouter([
         path: 'livechat',
         element: <LiveChat></LiveChat>
       },
+      {
+        path: 'message',
+        element: <Message></Message>,
+      },
       //admin routes
       {
         path: 'allusers',
@@ -122,6 +128,10 @@ const router = createBrowserRouter([
       {
         path: 'allrequests',
         element: <AllRequests></AllRequests>
+      },
+      {
+        path:'feedbacks',
+        element:<Feedbacks></Feedbacks>,
       }
     ]
   }

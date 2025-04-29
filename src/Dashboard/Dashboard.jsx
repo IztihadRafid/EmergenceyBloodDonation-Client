@@ -12,6 +12,7 @@ import useAllUsers from '../Components/hooks/useAllUsers';
 import useAllDonors from '../Components/hooks/useAllDonors';
 import useAllRequests from '../Components/hooks/useAllRequests';
 import useAdmin from '../Components/hooks/useAdmin';
+import { FaRegMessage } from 'react-icons/fa6';
 
 const Dashboard = () => {
     const [allusers] = useAllUsers()
@@ -47,6 +48,7 @@ const Dashboard = () => {
                                     {/* <li><NavLink to={'/dashboard/tracker'}><GoGraph />Blood Tracker</NavLink></li> */}
                                     <li><NavLink to={'/dashboard/tracker'}><GoGraph />Overview</NavLink></li>
                                     <li><NavLink to={'/dashboard/livechat'}><IoIosChatbubbles />Chat</NavLink></li>
+                                    <li><NavLink to={'/dashboard/feedbacks'}><FaRegMessage />Feedbacks</NavLink></li>
                                 </>
                             ) : (
                                 <>
@@ -57,8 +59,9 @@ const Dashboard = () => {
                                     <li><NavLink to={'/requestbloodform'}><MdBloodtype />Request Blood</NavLink></li>
                                     <li><NavLink to={'/donate'}><RiUserHeartFill />Donate Blood</NavLink></li>
                                     <li><NavLink to={'/dashboard/tracker'}><GoGraph />Blood Tracker</NavLink></li>
-                                    
+                                    <li><NavLink to={'/dashboard/message'}><FaRegMessage />Message</NavLink></li>
                                     <li><NavLink to={'/dashboard/livechat'}><IoIosChatbubbles />Chat</NavLink></li>
+                                    
                                 </>
                             )}
                         </ul>

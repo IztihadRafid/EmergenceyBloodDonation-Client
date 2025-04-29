@@ -57,7 +57,7 @@ const SignUp = () => {
                             // console.log("Signed Up and send to database",res.data);
                         }
                     })
-                // fetch('https://emergency-blood-donation-server.vercel.app/user',{
+                // fetch('http://localhost:5000/user',{
                 //     method: "POST",
                 //     headers :{
                 //         'content-type': 'application/json'
