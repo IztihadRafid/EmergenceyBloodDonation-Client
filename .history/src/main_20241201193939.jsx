@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/donor')
+        loader: () => fetch('https://emergency-blood-donation-server.vercel.app')
       },
       {
         path: '/donationinfo',
@@ -60,17 +60,17 @@ const router = createBrowserRouter([
   {
     path: '/donors',
     element: <Donors></Donors>,
-    loader: () => fetch('http://localhost:5000/donor')
+    loader: () => fetch('https://emergency-blood-donation-server.vercel.app')
   },
   {
     path:'/donorDetails/:id',
     element: <PrivateRoutes><DonorDetails></DonorDetails></PrivateRoutes>,
-    loader: ({params})=>fetch(`http://localhost:5000/donor/${params.id}`)
+    loader: ({params})=>fetch(`https://emergency-blood-donation-server.vercel.app/${params.id}`)
   },
   {
     path: 'requestBlood',
     element: <RequestBloodCards></RequestBloodCards>,
-    loader:()=>fetch('http://localhost:5000/requestblood')
+    loader:()=>fetch('https://emergency-blood-donation-server.vercel.app/requestblood')
   },
   {
     path: "/requestbloodform",

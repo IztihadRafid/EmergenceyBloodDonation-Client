@@ -4,7 +4,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import SocialLogin from "./SocialLogin";
-
+import { getAuth, sendEmailVerification } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+const auth = getAuth(app);
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
@@ -40,7 +42,11 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-
+                sendEmailVerification(auth.currentUser)
+                .then(()=>{
+                    console.log("verification email sent");
+                    alert("Verification Email Sent. Please Verify the Email")
+                })
                 const user = { email, name, phone }
                 axiosPublic.post('/user', user)
                     .then(res => {
@@ -51,7 +57,7 @@ const SignUp = () => {
                             // console.log("Signed Up and send to database",res.data);
                         }
                     })
-                // fetch('http://localhost:5000/user',{
+                // fetch('https://emergency-blood-donation-server.vercel.app/user',{
                 //     method: "POST",
                 //     headers :{
                 //         'content-type': 'application/json'
@@ -82,13 +88,13 @@ const SignUp = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold mb-8 text-red-500">Register now!</h1>
                 </div>
-                <div className="card  border border-red-300 p-8">
+                <div className="card  border border-red-300 md:p-8 p-3">
                     <form onSubmit={handleSignUp} className="card-body mx-auto">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="username" className="input input-bordered md:w-96" required />
+                            <input type="text" name='name' placeholder="username" className="input input-bordered md:w-96 lg:w-96 w-full" required />
                         </div>
 
 
@@ -96,24 +102,24 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Phone</span>
                             </label>
-                            <input type="text" name='phone' placeholder="phone number" className="input input-bordered md:w-96" required />
+                            <input type="text" name='phone' placeholder="phone number" className="input input-bordered md:w-96  lg:w-96  w-full" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered md:w-96" required />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered md:w-96  lg:w-96  w-full" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered md:w-96" required />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered md:w-96  lg:w-96  w-full" required />
 
                         </div>
                         {
                             // Viewing authentication error in SignUp
-                            signUpError && <p className="text-red-500 text-lg font-medium w-2/3">{signUpError}</p>
+                            signUpError && <p className="text-red-500 text-lg font-medium md:w-2/3 w-full">{signUpError}</p>
                         }
                         <div className="form-control mt-6">
                             <button className="btn bg-red-500 hover:bg-red-400 text-white">Sign Up</button>

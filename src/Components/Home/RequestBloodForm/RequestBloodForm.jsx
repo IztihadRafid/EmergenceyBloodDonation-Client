@@ -13,13 +13,14 @@ const divisions = {
     // =====================================================  
     //                   Name of Division and Districts
     // =====================================================
-    Dhaka: ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Jamalpur", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Mymensingh", "Narayanganj", "Narsingdi", "Netrokona", "Rajbari", "Shariatpur", "Sherpur", "Tangail"],
+    Dhaka: ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail"],
     Barisal: ["Barguna", "Barisal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur"],
     Chattogram: ["Bandarban", "Brahmanbaria", "Chandpur", "Chittagong", "Comilla", "Cox's Bazar", "Feni", "Khagrachari", "Lakshmipur", "Noakhali", "Rangamati"],
     Khulna: ["Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"],
     Rajshahi: ["Bogra", "Joypurhat", "Naogaon", "Natore", "Nawabganj", "Pabna", "Rajshahi", "Sirajgonj"],
     Rangpur: ["Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon"],
-    Sylhet: ["Habiganj", "Maulvibazar", "Sunamganj", "Sylhet"]
+    Sylhet: ["Habiganj", "Maulvibazar", "Sunamganj", "Sylhet"],
+    Mymensingh: ["Jamalpur", "Mymensingh", "Netrokona", "Sherpur"]
 };
 const RequestBloodForm = () => {
     const [selectedDivision, setSelectedDivision] = useState("");
@@ -79,29 +80,29 @@ const RequestBloodForm = () => {
 
 
         const requestPatientInformation = { name, gender, age, email, contactNumber, bloodGroup, presentAddress, division, district, bag, relation, reason, formattedDate }
-       
 
-        axiosSecure.post('/requestblood',requestPatientInformation)
-        .then(res=>{
-            // console.log(res.data);
-            if (requestPatientInformation) {
-                // console.log(requestPatientInformation);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Requested Successfully",
-                    showConfirmButton: false,
-                    timer: 1500,
-    
-                });
-            }
 
-           
+        axiosSecure.post('/requestblood', requestPatientInformation)
+            .then(res => {
+                // console.log(res.data);
+                if (requestPatientInformation) {
+                    // console.log(requestPatientInformation);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Requested Successfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+
+                    });
+                }
+
+
                 // Find matching donors & notify them
-                return axiosSecure.post('/match-donors', { bloodGroup, district });
-      
-        })
-        
+                return axiosSecure.post('/match-donors', { bloodGroup, district, name, contactNumber, formattedDate, presentAddress, email });
+
+            })
+
 
 
     }
@@ -253,10 +254,10 @@ const RequestBloodForm = () => {
                                                     required
                                                     className="input input-bordered"
                                                     selected={selectedDate}
-                                                    onChange={(date) => setSelectedDate(date)} 
-                                                    dateFormat="dd/MM/yyyy" 
-                                                    placeholderText="dd/mm/yyyy" 
-                                                    minDate={new Date()} 
+                                                    onChange={(date) => setSelectedDate(date)}
+                                                    dateFormat="dd/MM/yyyy"
+                                                    placeholderText="dd/mm/yyyy"
+                                                    minDate={new Date()}
                                                     isClearable
                                                 />
                                             </div>

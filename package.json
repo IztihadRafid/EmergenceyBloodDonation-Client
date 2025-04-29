@@ -27,6 +27,7 @@
     "react-leaflet": "^4.2.1",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.26.2",
+    "recharts": "^2.15.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.14.0",
     "swiper": "^11.1.14"

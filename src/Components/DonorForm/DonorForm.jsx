@@ -12,13 +12,14 @@ const divisions = {
     // =====================================================  
     // Name of Division and Districts
     // =====================================================
-    Dhaka: ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Jamalpur", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Mymensingh", "Narayanganj", "Narsingdi", "Netrokona", "Rajbari", "Shariatpur", "Sherpur", "Tangail"],
+    Dhaka: ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi","Rajbari", "Shariatpur",  "Tangail"],
     Barisal: ["Barguna", "Barisal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur"],
     Chattogram: ["Bandarban", "Brahmanbaria", "Chandpur", "Chittagong", "Comilla", "Cox's Bazar", "Feni", "Khagrachari", "Lakshmipur", "Noakhali", "Rangamati"],
     Khulna: ["Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"],
     Rajshahi: ["Bogra", "Joypurhat", "Naogaon", "Natore", "Nawabganj", "Pabna", "Rajshahi", "Sirajgonj"],
     Rangpur: ["Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon"],
-    Sylhet: ["Habiganj", "Maulvibazar", "Sunamganj", "Sylhet"]
+    Sylhet: ["Habiganj", "Maulvibazar", "Sunamganj", "Sylhet"],
+    Mymensingh:["Jamalpur","Mymensingh","Netrokona","Sherpur"]
 };
 const DonorForm = () => {
     const [selectedDate, setSelectedDate] = useState(null)
@@ -86,7 +87,7 @@ const DonorForm = () => {
         //===============================================
         //send data to the server
         //===============================================
-        // fetch('http://localhost:5000/donor', {
+        // fetch('https://emergency-blood-donation-server.vercel.app', {
         //     method: "POST",
         //     headers: {
         //         'content-type': 'application/json'

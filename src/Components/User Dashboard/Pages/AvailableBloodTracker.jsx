@@ -330,7 +330,7 @@ const AvailableBloodTracker = () => {
     setIsRefreshing(true);
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/user');
+      const response = await axios.get('https://emergency-blood-donation-server.vercel.app/user');
       const loggedInUserEmail = localStorage.getItem('userEmail'); // Assuming you store user email in localStorage
       
       // Filter out the logged-in user and ensure required fields exist

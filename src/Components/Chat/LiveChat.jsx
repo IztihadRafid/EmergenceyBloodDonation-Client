@@ -89,13 +89,20 @@ const LiveChat = () => {
                     'who can donate',
                     'am i eligible',
                     'eligibility criteria',
+                    'donate',
+                    'donation',
+                    'about donation',
+                    'how can i donate',
+                    'what is needed',
+                    'need to donate',
+                    'need to be donor'
                 ],
                 response:
-                    'To be eligible for blood donation, you generally need to be at least 17 years old, weigh at least 110 pounds, and be in good health. Specific requirements may vary based on location and health conditions.',
+                    'To be eligible for blood donation, you generally need to be at least 17 years old, weight at least 110 pounds, and be in good health. Specific requirements may vary based on location and health conditions.',
             },
             // Age Limit
             {
-                patterns: ['age limit', 'minimum age', 'maximum age'],
+                patterns: ['age limit', 'minimum age', 'maximum age','age','which age'],
                 response:
                     "The minimum age to donate blood is typically 17 years old in most countries. There's often no upper age limit as long as you meet the health requirements.",
             },

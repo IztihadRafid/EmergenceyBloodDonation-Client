@@ -18,7 +18,7 @@ const Footer = () => {
     <p className="font-bold">
    
       <br />
-      Providing Emergence of Blood Need 2024
+      Providing Emergence of Blood Need {new Date().getFullYear()}
     </p>
     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
   </aside>

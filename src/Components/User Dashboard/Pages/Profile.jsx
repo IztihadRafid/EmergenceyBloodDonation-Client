@@ -39,7 +39,7 @@ const Profile = () => {
     try {
       console.log('Updating user data:', data);
       
-      const response = await axios.put(`http://localhost:5000/user/${user.email}`, {
+      const response = await axios.put(`https://emergency-blood-donation-server.vercel.app/user/${user.email}`, {
         ...data,
         firebaseUid: user.uid,
         email: user.email,
@@ -65,7 +65,7 @@ const Profile = () => {
       if (!user?.email) return;
 
       try {
-        const response = await axios.get(`http://localhost:5000/user/${user.email}`);
+        const response = await axios.get(`https://emergency-blood-donation-server.vercel.app/user/${user.email}`);
         
         if (response.data.success) {
           setFormData({
@@ -81,7 +81,7 @@ const Profile = () => {
         if (error.response?.status === 404) {
           // Create new user
           try {
-            const createResponse = await axios.post('http://localhost:5000/user', {
+            const createResponse = await axios.post('https://emergency-blood-donation-server.vercel.app/user', {
               email: user.email,
               displayName: user.displayName || 'User',
               firebaseUid: user.uid,
@@ -133,7 +133,7 @@ const Profile = () => {
         address
       };
       
-      const response = await axios.put(`http://localhost:5000/user/${user?.email}`, dataToSubmit);
+      const response = await axios.put(`https://emergency-blood-donation-server.vercel.app/user/${user?.email}`, dataToSubmit);
       
       if (response.status === 200) {
         Swal.fire({
@@ -217,7 +217,7 @@ const Profile = () => {
         address
       });
 
-      const response = await axios.put(`http://localhost:5000/user/${user?.email}`, {
+      const response = await axios.put(`https://emergency-blood-donation-server.vercel.app/user/${user?.email}`, {
         ...formData,
         location,
         address
